@@ -5,6 +5,9 @@ metadata:
   name: task-02
 spec:
   # Step 1: Define a custom parameter named "git_commit" of type string
+  params:
+    - name: git_commit
+      type: string
   steps:
     - name: print-git-commit
       image: registry.access.redhat.com/ubi9/ubi:latest
@@ -12,3 +15,5 @@ spec:
       script: |
         #!/bin/sh
         # Place for your code..
+
+        echo "Git Commit: $(params.git_commit)"
